@@ -31,3 +31,21 @@ void main()
 }
 //求最大最小值
 
+
+#include<stdio.h>
+void main()
+{
+	printf("请输入成绩:\n");
+	int s[10],i,j,t;
+	for(i=0;i<10;i++)
+	{scanf("%d",&s[i]);}
+//	for(j=9;j>=1;j--)
+		for(i=0;i<9;i++)   //循环两次，第一次是循环比较，
+			if(s[i]>s[i+1])   //如果出现s[i]<s[i+1]的情况一个循环就无法执行下去了！
+			{t=s[i];s[i]=s[i+1];s[i+1]=t;}
+			//如果只有一个循环则只能排好一个数而已！
+  for(i=0;i<10;i++)
+    printf("%4d",s[i]);
+  printf("\n");
+}
+//排序
