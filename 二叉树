@@ -1,0 +1,140 @@
+#include "stdio.h"
+#include "malloc.h"
+typedef  char TelernType; 
+
+typedef struct BTreeNode 
+{
+	TelernType data ;      //树的数据域为字符型
+	struct BTreeNode *LChild ;         //*左孩子指针
+	struct BTreeNode *RChild ;         //*右孩子指针
+}BTree ; 
+
+BTree *CreatBTree()
+{
+	BTree *T;
+	char x;
+	scanf("%c",&x);getchar();
+	if (x=='0') T=NULL;
+	else 
+	{	T=new BTree;
+		T->data=x;
+		printf(" 请输入 %c 结点的左孩子：",T->data);
+		T->LChild=CreatBTree();
+		printf(" 请输入 %c 结点的右孩子：",T->data);
+		T->RChild=CreatBTree();
+	}
+	return T;
+}
+
+//前序递归遍历二叉树
+void PreOrder(BTree *T)
+{
+	if(T)
+	{
+		printf("%c\n",T->data);  //根 
+		PreOrder(T->LChild);    //左
+		PreOrder(T->RChild);   //右
+
+	}
+//	return T;
+}
+
+void InOrder(BTree *T)
+{
+		if(T)
+	{
+	    InOrder(T->LChild);    //左
+		printf("%c\n",T->data);  //根 
+		InOrder(T->RChild);   //右
+
+	}
+//	return T;
+	
+}
+
+void postOrder(BTree *T)
+{
+		if(T)
+	{
+	    postOrder(T->LChild);    //左
+		postOrder(T->RChild);   //右
+		printf("%c\n",T->data);  //根 
+	}
+//	return T;
+	
+}
+
+int TreeHeight(BTree *T)
+{
+	int lh,rh;
+	if (T==NULL) return 0;
+	else
+	{
+		lh=TreeHeight(T->LChild );
+		rh=TreeHeight(T->RChild );
+		if (lh>rh) return lh+1;
+		else return rh+1;
+	}
+}
+
+int count=0;
+void leafnum(BTree *T)
+{
+	if(T)        //树不空
+	{	if (T->LChild==NULL && T->RChild ==NULL)
+		count++;
+		leafnum(T->LChild );
+		leafnum(T->RChild ) ;
+	}
+}
+
+void main()
+{
+	BTree *T;
+	int k;	
+	do
+    {  
+	printf("\n\n\n\n");
+    printf("\t\t\t  树 子系统\n");
+	printf("\t\t******************************\n");
+	printf("\t\t*        1----建二叉树　 　　*\n");
+	printf("\t\t*        2----前序遍历 　　　*\n");
+	printf("\t\t*        3----中序遍历　 　　*\n");
+	printf("\t\t*        4----后序遍历　 　　*\n");
+	printf("\t\t*        5----求树高度     　*\n");
+	printf("\t\t*        6----叶子个数 　   *\n");
+	printf("\t\t*        0----返　　回　 　　*\n");
+	printf("\t\t******************************\n");
+	printf("\t\t 请选择菜单项(0－5)：");
+	scanf("%d",&k);getchar();
+	if (k==1)
+	{	printf("\n 请输入此树的根结点:");
+	    int m;	
+	    scanf("%d",&m);                         //建立二叉树
+	}
+	else if (k==2)          
+	{
+		printf("\n   此树前序遍历的顺序:");
+		                    
+	}
+	else if (k==3)
+	{	printf("\n   此树中序遍历的顺序:");
+		                    	
+	}
+	else if (k==4)       //查找线性表中元素值为x的位置
+	{	
+		printf("\n   此树后序遍历的顺序:");
+		                    
+	}
+	else if (k==5)        //输出链表
+	 {	
+                            
+		printf("\n此树的高度是：%d"); 
+	}
+	 else if (k==6)        //输出链表
+	 {	
+                            
+		printf("\n此树叶子结点个数是：%d",count); 
+	}
+	}while(k!=0);
+}
