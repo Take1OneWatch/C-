@@ -71,7 +71,7 @@ void main()
 {
 	vexlist GV;
 	adjmatrix GA;
-	int i,k;
+	int i,k,m;
 	do 
 	{
 	printf("\n\n\n\n");
@@ -99,18 +99,24 @@ void main()
 			for (i=0; i< MaxVertexNum;  i++)       /*±êÖ¾ÏòÁ¿³õÊ¼»¯*/
 			visited [i]=0; 
 			printf ("\nÇëÊäÈë´ÓÍ¼µÄÄÄ¸ö¶¥µã(1-%d)¿ªÊ¼Éî¶È±éÀú:",n);
-			                           ;
+			   scanf("%d",&n)         ;
 			printf("Éî¶È±éÀúµÄ½á¹ûÎª£º");
 			                           ;
 			break;
 		case 3:
 			for (i=0; i< MaxVertexNum;  i++)       /*±êÖ¾ÏòÁ¿³õÊ¼»¯*/
-			                           ; 
+		         ; 
 			printf ("\nÇëÊäÈë´ÓÍ¼µÄÄÄ¸ö¶¥µã(1-%d)¿ªÊ¼¹ã¶È±éÀú:",n);
-			                           ;
+			  scanf("%d",&m)                         ;
 			printf("¹ã¶È±éÀúµÄ½á¹ûÎª£º");
 			                           ;
 			break;
 	} 	
 	}while (k!=0);
 }
+
+
+
+
+
+
