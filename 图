@@ -59,10 +59,18 @@ void  bfs(vexlist GV,adjmatrix GA,int  i)  //´Ó¶¥µãi³ö·¢¹ã¶È±éÀ
 void print(adjmatrix GA)
 {
 	
+  int i,j;
+  for(i=1;i<=n;i++){
+   
+	  
+	  for(j=1;j<=n;j++){
 
 
 
+  printf("%d",GA[i][j]);
+  }
 
+  }
 
 
 }
@@ -71,7 +79,7 @@ void main()
 {
 	vexlist GV;
 	adjmatrix GA;
-	int i,k,m;
+	int i,k;
 	do 
 	{
 	printf("\n\n\n\n");
@@ -88,10 +96,10 @@ void main()
 	{
 		case 1:
 			printf ("\nÇëÊäÈëÍ¼µÄ¶¥µãµÄ¸öÊýn= ");
-			    scanf("%d",&n);
+			 scanf("%d",&n);
 			printf ("ÇëÊäÈëÍ¼µÄ±ß¸öÊýe= ");
-			    scanf("%d",&e)         ; 
-			                           ;	
+			 scanf("%d",&e);
+		      Create(GV,GA,n,e) ;	
 			printf("Í¼µÄÁÚ½Ó¾ØÕóÈçÏÂ\n");
 			print(GA);
 			break;
@@ -99,24 +107,18 @@ void main()
 			for (i=0; i< MaxVertexNum;  i++)       /*±êÖ¾ÏòÁ¿³õÊ¼»¯*/
 			visited [i]=0; 
 			printf ("\nÇëÊäÈë´ÓÍ¼µÄÄÄ¸ö¶¥µã(1-%d)¿ªÊ¼Éî¶È±éÀú:",n);
-			   scanf("%d",&n)         ;
+			 scanf("%d",&i);                          
 			printf("Éî¶È±éÀúµÄ½á¹ûÎª£º");
-			                           ;
+			  dfs(GV,GA,i);                       
 			break;
 		case 3:
 			for (i=0; i< MaxVertexNum;  i++)       /*±êÖ¾ÏòÁ¿³õÊ¼»¯*/
-		         ; 
+			   	visited [i]=0; 
 			printf ("\nÇëÊäÈë´ÓÍ¼µÄÄÄ¸ö¶¥µã(1-%d)¿ªÊ¼¹ã¶È±éÀú:",n);
-			  scanf("%d",&m)                         ;
+			    scanf("%d",&i);                        
 			printf("¹ã¶È±éÀúµÄ½á¹ûÎª£º");
-			                           ;
+			     bfs(GV,GA,i);                       
 			break;
 	} 	
 	}while (k!=0);
 }
-
-
-
-
-
-
