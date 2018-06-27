@@ -23,7 +23,7 @@ void Creater(int n,Link &L) //初始化链表
  { 
   p=(Node *)malloc(sizeof(Node)); 
   if(!p) exit(1); 
-  printf("the key_%d is:",i); 
+  printf("密码%d是:",i); 
   scanf("%d",&p->key); 
   p->num=i; 
   L->next=p; 
@@ -38,9 +38,9 @@ void main()
  int n,x; 
  L=NULL; 
  InitList(L);//构造出一个只有头结点的空链表 
- printf("please input the totle number of people:"); 
+ printf("请输入参加这个游戏的人数:"); 
  scanf("%d",&n);//总共的人数n 
- printf("the start key is:"); 
+ printf("请输入间隔数:"); 
  scanf("%d",&x);//初始密码为x 
  Creater(n,L);//建立好一个约瑟夫环 
  p=L; 
