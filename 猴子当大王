@@ -1,0 +1,29 @@
+#include<stdio.h>
+void main()
+{
+	int m,n,k=0,i;
+	int a[10];
+	printf("请说出你想生出几只猴子\n");
+	scanf("%d",&m);
+	printf("下面请说出你想要每次轮几个数！！！\n");
+	scanf("%d",&n);
+    for(i=1;i<=m;i++)
+	{
+		if(i==(m-n))
+		{
+        	a[i]=m-(m-n);
+			printf("%d\t",k);
+			continue;
+		}
+		else
+		{
+     	printf("%d\t",i);
+		}
+       	
+	}
+  /*  if(n>m)
+	{
+		k=n%m; n=k;
+	}*/
+	
+}
