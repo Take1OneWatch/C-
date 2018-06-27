@@ -1,7 +1,7 @@
 #include<stdio.h>
 void main()
 {
-	int m,n,k=0,i;
+	int m,n,k=0,i,j;
 	int a[10];
 	printf("请说出你想生出几只猴子\n");
 	scanf("%d",&m);
@@ -9,21 +9,23 @@ void main()
 	scanf("%d",&n);
     for(i=1;i<=m;i++)
 	{
-		if(i==(m-n))
+		a[i]=i;
+		if(n>m)
+			{
+				{
+		k=n%m; n=k;
+				}
+			}
+		if(i==m-(m-n))
 		{
-        	a[i]=m-(m-n);
-			printf("%d\t",k);
 			continue;
+			
 		}
+
+
 		else
 		{
-     	printf("%d\t",i);
+     	printf("%d\t",a[i]);
 		}
-       	
-	}
-  /*  if(n>m)
-	{
-		k=n%m; n=k;
-	}*/
-	
+	}	
 }
