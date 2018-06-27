@@ -7,33 +7,14 @@ void main()
 	scanf("%d",&m);
 	printf("下面请说出你想要每次轮几个数！！！\n");
 	scanf("%d",&n);
-	l=n;
-    for(i=1;i<=m;i++)
+	i=n;
+    for(i;i<=m;i++)
 	{
-		a[i]=i;
-		if(n>m)
-		{
-	      k=n%m; n=k;
-		  if(k==0)
-		  {
-			  n=1;
-		  }
-		}	
-		if(i==m-(m-n))
-		{
-			if(i==m)
-			{
-             /*  i=1;m=k-2;n=l;
-			   continue;*/
-			}
-			n++;
-			continue;
-		}
-	
+	   a[i]=i;
+	   if(i==n)
+	   {
+		   continue;
+	   }
+	   printf("%d\t",a[i]);
 	}
-	printf("哒哒哒哒哒，啦啦啦啦啦\n");
-    printf("让我们欢迎新的马溜大王\n");
-	printf("他\n");
-	printf("就是\n");
-	printf("我们的%d号马溜",a[i]);
 }
