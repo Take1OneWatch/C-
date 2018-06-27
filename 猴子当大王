@@ -1,13 +1,13 @@
 #include<stdio.h>
 void main()
 {
-	int m,n,k,i,j;
+	int m,n,k,i,j,l;
 	int a[100];
 	printf("请说出你想生出几只猴子\n");
 	scanf("%d",&m);
 	printf("下面请说出你想要每次轮几个数！！！\n");
 	scanf("%d",&n);
-	k=n;
+	l=n;
     for(i=1;i<=m;i++)
 	{
 		a[i]=i;
@@ -23,8 +23,8 @@ void main()
 		{
 			if(i==m)
 			{
-               i=1;m=k-2;n=k;
-			   continue;
+             /*  i=1;m=k-2;n=l;
+			   continue;*/
 			}
 			n++;
 			continue;
@@ -35,6 +35,5 @@ void main()
     printf("让我们欢迎新的马溜大王\n");
 	printf("他\n");
 	printf("就是\n");
-	
-		printf("我们的%d号马溜",a[i]);
+	printf("我们的%d号马溜",a[i]);
 }
