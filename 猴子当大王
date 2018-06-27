@@ -2,7 +2,7 @@
 void main()
 {
 	int m,n,k=0,i,j;
-	int a[10];
+	int a[100];
 	printf("请说出你想生出几只猴子\n");
 	scanf("%d",&m);
 	printf("下面请说出你想要每次轮几个数！！！\n");
@@ -12,14 +12,17 @@ void main()
 		a[i]=i;
 		if(n>m)
 			{
-				{
-		k=n%m; n=k;
-				}
+		{
+	      k=n%m; n=k;
+		  if(k==0)
+		  {
+			  n=1;
+		  }
+		}
 			}
 		if(i==m-(m-n))
 		{
 			continue;
-			
 		}
 
 
