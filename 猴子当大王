@@ -11,24 +11,22 @@ void main()
 	{
 		a[i]=i;
 		if(n>m)
-			{
 		{
 	      k=n%m; n=k;
 		  if(k==0)
 		  {
 			  n=1;
 		  }
-		}
-			}
+		}	
 		if(i==m-(m-n))
 		{
+			n++;
 			continue;
 		}
-
-
 		else
 		{
      	printf("%d\t",a[i]);
+		
 		}
 	}	
 }
