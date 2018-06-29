@@ -40,7 +40,7 @@ void main()
  InitList(L);//构造出一个只有头结点的空链表 
  printf("请输入参加这个游戏的人数:"); 
  scanf("%d",&n);//总共的人数n 
- printf("请输入间隔数:"); 
+ printf("请输入初始m值:"); 
  scanf("%d",&x);//初始密码为x 
  Creater(n,L);//建立好一个约瑟夫环 
  p=L; 
