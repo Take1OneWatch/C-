@@ -1,0 +1,140 @@
+#include "stdio.h"
+#include "malloc.h"
+#define MAXSIZE   200        //线性表允许的最大长度
+#define datatype int
+typedef  struct              //定义线性表的结构
+{   datatype  data[MAXSIZE];     //表示线性表（a1，a2，….,an）
+    int  last;     //last表示线性表的实际长度
+} SeqList;
+
+/* 线性表初始化：Init_List(L)
+初始条件：表L不存在
+操作结果：构造一个空的线性表 */
+SeqList *init_SeqList( )
+{ SeqList *L;
+  L=new SeqList; //  L=malloc(sizeof(SeqList));
+  L->last=-1;   
+  return L;
+}
+
+/* 插入操作：Insert_List(L,i,x)
+初始条件：线性表L存在，插入位置正确 (1<=i<=n+1,ｎ为插入前的表长)。
+操作结果：在线性表L的第 i 个位置上插入一个值为 x 的新元素，这样使原序号为 i , i+1, ... , n 的数据元素的序号变为 i+1,i+2, ... , n+1，插入后表长=原表长+1。 */
+int  Insert_SeqList(SeqList *L,int i,datatype x)
+{
+    int j;
+	if (L->last==MAXSIZE-1)
+	{
+		printf("存储空间满");
+		return 0;
+	}
+	else if (i<1 || i>L->last +2)
+	{
+		printf("位置错误");
+		return 0;
+	}
+	for (j=L->last ;j>=i-1;j--)
+	{
+		L->data [j+1] = L->data [j];
+	}
+	L->data [i-1]=x;
+	L->last++;
+	return 1;
+}
+	
+/*删除操作：Delete_List(L,i)
+初始条件：线性表L存在，1<=i<=n。
+操作结果：在线性表L中删除序号为i的数据元素，删除后使序号为 i+1, i+2,..., n 的元素变为序号为 i, i+1,...,n-1，删除后新表长＝原表长－１。    */
+int Delete_SeqList(SeqList *L,int i)  
+{
+    int j;
+	if (i<1 || i>L->last +1)
+	{
+		printf ("元素不存在");
+		return 0;
+	}
+	for (j=i;j<= L->last ;++j)
+	{
+		L->data [j+1] = L->data [j];
+	}
+	L->last--;
+	return 1;
+}
+
+/*按值查找：Locate_List(L,x)，ｘ是给定的一个数据元素。
+初始条件：线性表L存在
+操作结果：在表L中查找值为ｘ的数据元素，其结果返回在L中首次出现的值为ｘ的那个元素的序号或地址，称为查找成功; 否则，在L中未找到值为ｘ的数据元素，返回一特殊值表示查找失败。    */
+int Location_SeqList(SeqList *L, datatype x)
+{   
+	int y=0;
+    while (y<= L->last && L->data [y]!=x)
+		y++;
+    if (y> L->last )
+		return -1;
+	else return y+1;
+}
+
+void print(SeqList *L)       //打印线性表 　　　
+{    int i;
+     for (i=0;i<=L->last;i++)   
+		 printf("%d,",L->data[i]);
+     printf("\n");
+}
+void count(SeqList *L)       //计算线性表 数目　　　
+{ 
+		 printf("%d\t",L->last);
+
+}
+void main()
+{   SeqList *L;
+    int i,j,k; 
+	datatype x;
+    do
+    {   printf("\n\n\n\n\n");
+        printf("\t\t\t 线性表子系统\n");
+	printf("\t\t*******************************\n");
+	printf("\t\t*        1----初始化表　  　　*\n");
+	printf("\t\t*        2----插    入　　　　*\n");
+	printf("\t\t*        3----删　　除　　　　*\n");
+	printf("\t\t*        4----查　　找　　　　*\n");
+	printf("\t\t*        5----计　　数　　　  *\n");
+	printf("\t\t*        6----显　　示　　　　*\n");
+	printf("\t\t*        0----返　　回　　　　*\n");
+	printf("\t\t*******************************\n");
+	printf("\t\t 请选择菜单项(0－6)：");
+	scanf("%d",&k);getchar();
+	switch(k)
+         {
+	  case 1: 
+			L=init_SeqList( );    //初始化线性表
+ 			break;
+      case 2:          //在线性表第i位置处插入值为X的元素
+			printf("\n   请输入插入的位置i和数据X(输入格式：i,X):");
+			scanf("%d,%d",&i,&x);
+		    j=Insert_SeqList(L,i,x);
+			break;
+	  case 3:          //删除线性表中值为X的元素 
+			printf("\n   请输入要删除元素的位置i:");
+			scanf("%d",&i);
+		    j=Delete_SeqList(L,i);
+			if (j == 1) printf("删除成功!!");
+			else printf("删除失败!!");
+			break;
+	  case 4:       //查找线性表中元素值为x的位置
+			printf("\n   请输入要查找的数值X:");
+			scanf("%d",&x);
+		    j=Location_SeqList(L,x);
+			if (j != -1 ) 
+				{ print(L);printf("中值为X所在的位置是 %d ",j);}
+			else
+				printf("线性表中无此元素!!\n");
+			break;
+	  case 5:        //计数
+            printf("\n线性表的数目为：");
+            count(L);
+	   case 6:        //输出线性表
+            printf("\n线性表的顺序存储为：");
+            print(L);
+		 }
+	}while(k!=0);
+}
