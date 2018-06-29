@@ -1,139 +1,147 @@
-#include "stdio.h"
-#include "malloc.h"
-typedef  char TelernType; 
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
 
-typedef struct BTreeNode 
-{
-	TelernType data ;      //树的数据域为字符型
-	struct BTreeNode *LChild ;         //*左孩子指针
-	struct BTreeNode *RChild ;         //*右孩子指针
-}BTree ; 
 
-BTree *CreatBTree()
+typedef int   ElemType; //数据类型
+
+//定义二叉树结构，与单链表相似，多了一个右孩子结点
+typedef struct BiTNode{
+ElemType   data; //数据域
+struct BiTNode*lChild, *rChlid;
+//左右子树域
+}BiTNode, *BiTree;
+
+
+//先序创建二叉树
+int CreateBiTree(BiTree *T)
 {
-	BTree *T;
-	char x;
-	scanf("%c",&x);getchar();
-	if (x=='0') T=NULL;
-	else 
-	{	T=new BTree;
-		T->data=x;
-		printf(" 请输入 %c 结点的左孩子：",T->data);
-		T->LChild=CreatBTree();
-		printf(" 请输入 %c 结点的右孩子：",T->data);
-		T->RChild=CreatBTree();
-	}
-	return T;
+ElemType ch;
+ElemType temp;
+scanf("%d", &ch);
+temp = getchar();
+
+
+
+if (ch == -1)
+*T = NULL;
+else
+{
+*T = (BiTree)malloc(sizeof(BiTNode));
+if (!(*T))
+exit(-1);
+
+
+(*T)->data = ch;
+printf("输入%d的左子节点：", ch);
+CreateBiTree(&(*T)->lChild);
+printf("输入%d的右子节点：", ch);
+CreateBiTree(&(*T)->rChlid);
 }
 
-//前序递归遍历二叉树
-void PreOrder(BTree *T)
-{
-	if(T!=NULL)
-	{
-		printf("%c\n",T->data);  //根 
-		PreOrder(T->LChild);    //左
-		PreOrder(T->RChild);   //右
 
-	}
-//	return T;
+return 1;
 }
 
-void InOrder(BTree *T)
-{
-		if(T!=NULL)
-	{
-	    InOrder(T->LChild);    //左
-		printf("%c\n",T->data);  //根 
-		InOrder(T->RChild);   //右
 
-	}
-//	return T;
-	
+//先序遍历二叉树
+void TraverseBiTree(BiTree T)
+{
+if (T == NULL)
+return ;
+printf("%d ", T->data);
+TraverseBiTree(T->lChild);
+TraverseBiTree(T->rChlid);
+
+
 }
 
-void postOrder(BTree *T)
+
+//中序遍历二叉树
+void InOrderBiTree(BiTree T)
 {
-		if(T!=NULL)
-	{
-	    postOrder(T->LChild);    //左
-		postOrder(T->RChild);   //右
-		printf("%c\n",T->data);  //根 
-	}
-//	return T;
-	
+if (T == NULL)
+return ;
+InOrderBiTree(T->lChild);
+printf("%d ", T->data);
+InOrderBiTree(T->rChlid);
 }
 
-int TreeHeight(BTree *T)
+
+
+
+//后序遍历二叉树
+void PostOrderBiTree(BiTree T)
 {
-	int lh,rh;
-	if (T==NULL) return 0;
-	else
-	{
-		lh=TreeHeight(T->LChild );
-		rh=TreeHeight(T->RChild );
-		if (lh>rh) return lh+1;
-		else return rh+1;
-	}
+if (T == NULL)
+return ;
+PostOrderBiTree(T->lChild);
+PostOrderBiTree(T->rChlid);
+printf("%d ", T->data);
 }
 
-int count=0;
-void leafnum(BTree *T)
+
+
+//层序遍历二叉树
+
+
+
+
+
+//二叉树的深度
+
+
+int TreeDeep(BiTree T)
 {
-	if(T)        //树不空
-	{	if (T->LChild==NULL && T->RChild ==NULL)
-		count++;
-		leafnum(T->LChild );
-		leafnum(T->RChild ) ;
-	}
+int deep = 0;
+if(T)
+{
+int leftdeep = TreeDeep(T->lChild);
+int rightdeep = TreeDeep(T->rChlid);
+deep = leftdeep>=rightdeep?leftdeep+1:rightdeep+1;
+}
+return deep;
 }
 
-void main()
+
+//求二叉树叶子结点个数
+
+
+int Leafcount(BiTree T,int &num)
+{  
+if(T)
 {
-	BTree *T;
-	int k;	
-	do
-    {  
-	printf("\n\n\n\n");
-    printf("\t\t\t  树 子系统\n");
-	printf("\t\t******************************\n");
-	printf("\t\t*        1----建二叉树　 　　*\n");
-	printf("\t\t*        2----前序遍历 　　　*\n");
-	printf("\t\t*        3----中序遍历　 　　*\n");
-	printf("\t\t*        4----后序遍历　 　　*\n");
-	printf("\t\t*        5----求树高度     　*\n");
-	printf("\t\t*        6----叶子个数 　    *\n");
-	printf("\t\t*        0----返　　回　 　　*\n");
-	printf("\t\t******************************\n");
-	printf("\t\t 请选择菜单项(0－5)：");
-	scanf("%d",&k);getchar();
-	if (k==1)
-	{	printf("\n 请输入此树的根结点:");
-	    CreatBTree();                   //建立二叉树
-	}
-	else if (k==2)          
-	{
-		printf("\n   此树前序遍历的顺序:");
-		PreOrder(T);                    
-	}
-	else if (k==3)
-	{	printf("\n   此树中序遍历的顺序:");
-		InOrder(T);               	
-	}
-	else if (k==4)       //查找线性表中元素值为x的位置
-	{	
-		printf("\n   此树后序遍历的顺序:");
-		postOrder(T);                    
-	}
-	else if (k==5)        //输出链表
-	 {	                      
-		printf("\n此树的高度是：%d");
-		TreeHeight(T);
-	}
-	 else if (k==6)        //输出链表
-	 {	                 
-		printf("\n此树叶子结点个数是：%d"); 
-		leafnum(T);
-	}
-	}while(k!=0);
+if(T->lChild ==NULL &&T->rChlid==NULL)
+num++;
+Leafcount(T->lChild,num);
+Leafcount(T->rChlid,num);
+
+
+}
+return num;
+}
+//主函数
+int main(void)
+{
+BiTree T;
+BiTree *p = (BiTree*)malloc(sizeof(BiTree));
+int deepth,num=0 ;
+printf("请输入第一个结点的值,-1表示没有叶结点:\n");
+CreateBiTree(&T);
+printf("先序遍历二叉树:\n");
+TraverseBiTree(T);
+printf("\n");
+printf("中序遍历二叉树:\n");
+InOrderBiTree(T);
+printf("\n");
+printf("后序遍历二叉树:\n");
+PostOrderBiTree(T);
+printf("\n");
+deepth=TreeDeep(T);
+printf("树的深度为:%d",deepth);
+printf("\n");
+Leafcount(T,num);
+printf("树的叶子结点个数为:%d",num);
+printf("\n");
+return 0;
 }
