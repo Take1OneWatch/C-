@@ -7,21 +7,25 @@
   function rec(){
 	var score; //score变量，用来存储用户输入的成绩值。
 	score = prompt("你的分数是多少？");
-	if(score>=90)
+	if(score>=90&&score<=100)
 	{
 	   document.write("你很棒!");
 	}
-	else if(score>=75)
+	else if(score>=75&&score<90)
     {
 	   document.write("不错吆!");
 	}
-	else if(score>=60)
+	else if(score>=60&&score<75)
     {
 	   document.write("要加油!");
     }
-    else
+    else if(score>100)
+    {
+	   document.write("你丫的吹牛不错");
+    }
+    else if(score>=0&&score<60)
 	{
-       document.write("要努力了!");
+       document.write("牛逼啊兄嘚");
 	}
   }
   </script>
