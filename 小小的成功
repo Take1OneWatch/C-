@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>  
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>   
+  <script type="text/javascript">  
+    
+  
+   function openWindow(){
+   	 var mywin = confirm("请确定是否要打开学习的大门");
+   	 if(mywin==true){
+   	 	window.open('http://www.imooc.com','-self','height=400','width=500')
+   	 }
+   	 else{
+   	 	document.write("你居然不爱学习，我们分手吧");
+// 	 	window.close();
+   	 }
+   }
+    
+  </script> 
+ </head> 
+ <body> 
+	  <input type="button" value="新窗口打开网站" onclick="openWindow()" /> 
+ </body>
+</html>
