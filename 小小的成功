@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
  <head>
   <title> new document </title>  
@@ -8,15 +8,15 @@
   
    function openWindow(){
    	 var mywin = confirm("请确定是否要打开学习的大门");
+   	 
    	 if(mywin==true){
    	 	window.open('http://www.imooc.com','-self','height=400','width=500')
    	 }
    	 else{
-   	 	document.write("你居然不爱学习，我们分手吧");
-// 	 	window.close();
+   	 	var win = alert("你居然不爱学习，我们分手吧，再见");
+ 	 	window.close();
    	 }
    }
-    
   </script> 
  </head> 
  <body> 
