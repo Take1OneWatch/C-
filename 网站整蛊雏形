@@ -23,7 +23,7 @@ var mymessage=confirm("请问你是女士还是男士");
  else
   
   {
-        rec();
+        mymessage.close()
     }
   }   
  
