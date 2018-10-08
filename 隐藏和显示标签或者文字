@@ -20,11 +20,22 @@
 			}
 			function rec()
 			{
-				 var mychar2= document.getElementById("con");
+				 var mychar2= document.getElementById("con1");
     mychar2.style.color="red"
     mychar2.style.backgroundColor ="#ccc";
     machar2.style.width="20"
 			}
+			function rec1()
+			{
+				var mychar3= document.getElementById("con1");
+    mychar3.style.color="black"
+    mychar3.style.backgroundColor ="white";
+    machar3.style.width="20"
+			}
+			
+			
+			
+			
 	    </script> 
 	</head> 
 	<body>  
@@ -33,7 +44,8 @@
 	    <form>
 	       <input type="button" onclick="hidetext()" value="隐藏内容" /> 
 	       <input type="button" onclick="showtext()" value="显示内容" /> 
-	       <input type="button" onclick="rec()" value="更改颜色" /> 
+	      <input type="button" onclick="rec()" value="更改颜色" /> 
+	       <input type="button" onclick="rec1()" value="回复原色" />
 	   
 	       
 	       
