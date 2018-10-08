@@ -18,6 +18,13 @@
 	         var mychar1 = document.getElementById("con1");
 	         document.getElementById("con1").style.display="block"
 			}
+			function rec()
+			{
+				 var mychar2= document.getElementById("con");
+    mychar2.style.color="red"
+    mychar2.style.backgroundColor ="#ccc";
+    machar2.style.width="20"
+			}
 	    </script> 
 	</head> 
 	<body>  
@@ -26,6 +33,10 @@
 	    <form>
 	       <input type="button" onclick="hidetext()" value="隐藏内容" /> 
 	       <input type="button" onclick="showtext()" value="显示内容" /> 
+	       <input type="button" onclick="rec()" value="更改颜色" /> 
+	   
+	       
+	       
 	    </form>
 	</body> 
 	</html>
