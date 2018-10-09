@@ -25,27 +25,74 @@ p{
   </div>
   <form>
   <!--当点击相应按钮，执行相应操作，为按钮添加相应事件-->
-    <input type="button" value="改变颜色" >  
-    <input type="button" value="改变宽高" >
-    <input type="button" value="隐藏内容" >
-    <input type="button" value="显示内容" >
-    <input type="button" value="取消设置" >
+    <input type="button" onclick="re()" value="改变颜色" >  
+    <input type="button" onclick="re1()" value="恢复颜色" >  
+    <input type="button" onclick="re2()" value="改变宽高" >
+    <input type="button" onclick="re3()" value="隐藏内容" >
+    <input type="button" onclick="re4()" value="显示内容" >
+    <input type="button" onclick="re5()" value="取消设置" >
   </form>
   <script type="text/javascript">
 //定义"改变颜色"的函数
+function re()
+{
+	  var a=document.getElementById("txt");
+      a.style.backgroundColor="#333333"
+   
+     a.style.color="red";
 
+   // txt.style.backgroundColor="#CCC";
+}
+function re1()
+{
+	  var a1=document.getElementById("txt");
+   a1.style.backgroundColor="white"
+     a1.style.color="black";
+
+   // txt.style.backgroundColor="#CCC";
+}
 
 //定义"改变宽高"的函数
-
+function re2()
+{
+	var a2 = document.getElementById("txt")
+	 a2.style.width="550px";
+    a2.style.height="500px";
+}
 
 //定义"隐藏内容"的函数
-
+function re3()
+{
+	 // var a=document.getElementById("txt");
+  var mychar = document.getElementById("con");
+	     document.getElementById("con").style.display="none"
+	     var mychar = document.getElementById("txt");
+	     document.getElementById("txt").style.display="none"
+}
 
 //定义"显示内容"的函数
 
+function re4()
+{
+	  var alert=document.getElementById("txt");
+
+  var mychar = document.getElementById("con");
+	     document.getElementById("con").style.display="block"
+	     var mychar = document.getElementById("txt");
+	     document.getElementById("txt").style.display="block"
+}
 
 //定义"取消设置"的函数
-
+function re5()
+{
+	  var mymessage=confirm("请问是否取消？");
+	  if (mymessage==true) {
+	  	 con.style="none";
+        txt.style="none";//隐藏style属性
+	  } else{
+	  	return
+	  }
+}
 
 
   </script>
