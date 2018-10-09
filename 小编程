@@ -31,6 +31,9 @@ p{
     <input type="button" onclick="re3()" value="隐藏内容" >
     <input type="button" onclick="re4()" value="显示内容" >
     <input type="button" onclick="re5()" value="取消设置" >
+    <input type="button" onclick="re6()" value="增加内容" >
+    <input type="text" name="Alan" id="newAdd" />     <!--增加输入栏-->
+                                                
   </form>
   <script type="text/javascript">
 //定义"改变颜色"的函数
@@ -92,6 +95,12 @@ function re5()
 	  } else{
 	  	return
 	  }
+}
+function re6()
+{
+	
+  
+  
 }
 
 
