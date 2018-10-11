@@ -4,6 +4,10 @@
 <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
 <title>javascript</title>
 <style type="text/css">
+	body{ text-align:center} 
+.div{ margin:0 auto; width:400px; height:100px; border:1px solid #F00} 
+/* css注释：为了观察效果设置宽度 边框 高度等样式 */ 
+	
 body{font-size:12px;}
 #txt{
     height:400px;
@@ -16,12 +20,13 @@ p{
 </style>
 </head>
 <body>
-  <h2 id="con">JavaScript课程</H2>
-  <div id="txt"> 
-     <h5>JavaScript为网页添加动态效果并实现与用户交互的功能。</h5>
-        <p>1. JavaScript入门篇，让不懂JS的你，快速了解JS。</p>
-        <p>2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。</p>
-        <p>3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。</p>
+  <h1 id="con"><center>JavaScript课程</center></h1>
+  <div margin:auto id="txt"> 
+  	
+     <h3><center>JavaScript为网页添加动态效果并实现与用户交互的功能。</center></h3>
+        <p><center>1. JavaScript入门篇，让不懂JS的你，快速了解JS。</center></p>
+        <p><center>2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。</center></p>
+        <p><center>3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。</center></p>
   </div>
   <form>
   <!--当点击相应按钮，执行相应操作，为按钮添加相应事件-->
@@ -30,13 +35,20 @@ p{
     <input type="button" onclick="re2()" value="改变宽高" >
     <input type="button" onclick="re3()" value="隐藏内容" >
     <input type="button" onclick="re4()" value="显示内容" >
-    <input type="button" onclick="re5()" value="取消设置" >
-    <input type="button" onclick="re6()" value="增加内容" >
+    <input type="button" onclick="re5()" value="取消设置" ><br>
     <input type="text" name="Alan" id="newAdd" />     <!--增加输入栏-->
+    <input type="button" onclick="re7()" value="输入" >
                                                 
   </form>
   <script type="text/javascript">
 //定义"改变颜色"的函数
+function s()
+{
+	var s1=document.getElementById("con");
+	s1.style.background='black';
+	s1.style.color='white';
+}
+s();
 function re()
 {
 	  var a=document.getElementById("txt");
@@ -90,7 +102,7 @@ function re5()
 {
 	  var mymessage=confirm("请问是否取消？");
 	  if (mymessage==true) {
-	  	 con.style="none";
+	  	// con.style="none";
         txt.style="none";//隐藏style属性
 	  } else{
 	  	return
@@ -106,4 +118,4 @@ function re6()
 
   </script>
 </body>
-</html>
+</h
