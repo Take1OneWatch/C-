@@ -13,7 +13,7 @@
    	 	window.open('http://www.imooc.com','-self','height=400','width=500')
    	 }
    	 else{
-   	 	var win = alert("你居然不爱学习，我们分手吧，再见");
+   	 	var win = alert("你居然不爱学习，再见");
  	 	window.close();
    	 }
    }
