@@ -10,7 +10,6 @@
 <br>
 
 <table align="center">
-
 <tr>
 <td>用&nbsp 户 &nbsp 名:</td>
 <td><input type="text" name="userName"></td>
@@ -52,9 +51,22 @@
 
 <tr>
 <td colspan="3" align="center">
-<input type="submit" name="submit" value="确定保存">&nbsp&nbsp
-<input type="submit" name="submit" value="重新编辑">&nbsp&nbsp
+<input type="button"   value="确定保存" onclick="s()">
+<input type="reset" name="submit" value="重新编辑">
 <input type="submit" name="submit" value="提交">
+<script type="text/javascript">
+	function s(){
+		var mymessage = confirm("请问是否保存");
+	  if (mymessage==true) {
+	  	document.write("保存成功！");
+	  } 
+	  else{
+	  	var win = alert("啊哦，数据没有保存");
+ 	 	window.close();
+	  }
+	}
+	}
+
 </td>
 </tr>
 
