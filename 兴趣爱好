@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+		<title></title>
+	</head>
+	<body align="center">
+<table align="center">
+
+<br>
+
+<table align="center">
+
+<tr>
+<td>用&nbsp 户 &nbsp 名:</td>
+<td><input type="text" name="userName"></td>
+</tr>
+
+<tr>
+<td>密&nbsp码:</td>
+<td><input type="password" name="userpassword1"></td>
+</tr>
+
+<tr>
+<td>确&nbsp认&nbsp密&nbsp码:</td>
+<td><input type="password" name="userpassword2"></td>
+</tr>
+
+<tr>
+<td>性&nbsp别:</td>
+<td>
+<input type="radio" name="sex" value="男" checked>男
+<input type="radio" name="sex" value="女">女
+</td>
+</tr>
+
+
+<tr>
+<td>爱&nbsp好:</td>
+<td>
+<input type="checkbox" name="like1" value"足球">足球
+<input type="checkbox" name="like1" value"篮球">篮球
+<input type="checkbox" name="like1" value"音乐">音乐
+<input type="checkbox" name="like1" value"看书">看书
+</td>
+</tr>
+
+<tr>
+<td>E-mile:</td>
+<td><input type="text" size="50"  maxlength="30"></td>
+</tr>
+
+<tr>
+<td colspan="3" align="center">
+<input type="submit" name="submit" value="确定保存">&nbsp&nbsp
+<input type="submit" name="submit" value="重新编辑">&nbsp&nbsp
+<input type="submit" name="submit" value="提交">
+</td>
+</tr>
+
+	<body>
+	</body>
+</html>
