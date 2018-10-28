@@ -21,7 +21,7 @@ p{
 </head>
 <body>
   <h1 id="con"><center>JavaScript课程</center></h1>
-  <div margin:auto id="txt"> 
+  <div style="margin: auto;"id="txt"> 
   	
      <h3><center>JavaScript为网页添加动态效果并实现与用户交互的功能。</center></h3>
         <p><center>1. JavaScript入门篇，让不懂JS的你，快速了解JS。</center></p>
@@ -103,7 +103,8 @@ function re5()
 	  var mymessage=confirm("请问是否取消？");
 	  if (mymessage==true) {
 	  	// con.style="none";
-        txt.style="none";//隐藏style属性
+        txt.style="none;margin: auto";//隐藏style属性
+        
 	  } else{
 	  	return
 	  }
@@ -118,4 +119,4 @@ function re6()
 
   </script>
 </body>
-</h
+</html>
